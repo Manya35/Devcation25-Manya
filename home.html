@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devcation 2025 - Sci-Fi Redesign</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at center, #0d0d0d, #000);
+      color: #00fff7;
+      overflow-x: hidden;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-bottom: 1px solid #00fff7;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-title {
+      font-size: 1.5rem;
+      color: #00fff7;
+    }
+
+    .nav-links a {
+      color: #00fff7;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff00ff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #00fff7;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      text-shadow: 0 0 5px #00fff7;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #ff00ff;
+      margin-bottom: 1rem;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #00fff7;
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      border-color: #ff00ff;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      margin-top: 2rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #00fff7;
+      color: #000;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ff00ff;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .countdown {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      color: #00fff7;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+      border-top: 1px solid #00fff7;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-title">Devcation 2025</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#register">Register</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome to Devcation 2025</h1>
+    <p>Where Innovation Meets Imagination in a Futuristic Coding Journey</p>
+    <button class="btn" onclick="scrollToRegister()">Join the Mission</button>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About the Event</h2>
+    <p>Devcation'24 is a week-long technical festival organized by Google Developer. It is your gateway to a hyper-modern, tech-forward coding experience set in a sci-fi inspired digital universe.</p>
+  </section>
+
+  <section id="features" class="section">
+    <h2>Features</h2>
+    <div class="card-container">
+      <div class="card">AI-powered challenge boards</div>
+      <div class="card">Real-time holographic code reviews</div>
+      <div class="card">Interplanetary team formations</div>
+      <div class="card">Galactic leaderboard with live updates</div>
+    </div>
+  </section>
+
+  <section id="register" class="section">
+    <h2>Register Now</h2>
+    <p>Embark on this stellar journey and reshape your future. Registration closes soon.</p>
+    <div class="countdown" id="countdown"></div>
+    <button class="btn">Sign Up</button>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 Devcation. All rights reserved. Made for the next dimension of developers.
+  </footer>
+
+  <script>
+    function scrollToRegister() {
+      document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Countdown Timer to April 15, 2025
+    const countdown = document.getElementById('countdown');
+    const eventDate = new Date("April 15, 2025 00:00:00").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left until Devcation!`;
+    }, 1000);
+  </script>
+</body>
+</html>
